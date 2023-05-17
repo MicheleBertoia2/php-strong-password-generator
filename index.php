@@ -4,6 +4,17 @@ $error_msg = "";
 
 if(isset($_GET['length']) && !empty($_GET['length']) && ($_GET['length'] >= 6) && is_numeric($_GET['length'])){
   var_dump("ok c'è");
+  $max_length = $_GET['length'];
+  function generatePwd($number){
+    $data = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&()*+,-./:;<=>?@{|}~';
+    $pwdArr = [];
+    for ($i=0; $i < $number - 1; $i++) { 
+      $carattereEstratto = rand(0,strlen($data) - 1);
+      $pwdArr[] = $data[$carattereEstratto];
+    }
+    return explode("",$pwdArr);
+  };
+
 }else{
   var_dump("non c'è");
   $error_msg = "si prega di inserire un numero valido maggiore di 6";
@@ -39,9 +50,16 @@ if(isset($_GET['length']) && !empty($_GET['length']) && ($_GET['length'] >= 6) &
       </div>
 
         <div class="col">
-          <button type="submit" class="btn btn-success">Invia</button>
+          <button type="submit" class="btn btn-success mb-5">Invia</button>
+
+          <!-- <?php if($pwdArr):?> -->
+            <p class="text-success">Complimenti, la password generata è <?php echo generatePwd($max_length) ?> </p>
+          <!-- <?php endif?> -->
+
         </div>
       </div>
+
+
 
     </form>
 
