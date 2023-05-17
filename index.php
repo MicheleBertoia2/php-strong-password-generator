@@ -1,6 +1,10 @@
 <?php 
 
-
+if(isset($_GET['length']) && !empty($_GET['length'])){
+  var_dump("ok c'è");
+}else{
+  var_dump("non c'è");
+}
 
 
 ?>
@@ -18,18 +22,20 @@
 </head>
 <body>
 
-  <div class="container">
-    <h1>generatore di password super sicuro</h1>
+  <div class="container my-5">
+    <h1 class="my-5">generatore di password super sicuro</h1>
 
     <form action="index.php" method="GET">
 
       <div class="row">
-        <div class="col">
-
+          <div class="mb-3 col-3">
+            <label for="length" class="form-label">Lunghezza Password</label>
+            <input type="number" class="form-control" id="length" placeholder="inserisci la lunghezza della password" name="length">
+          </div>
       </div>
 
         <div class="col">
-
+          <button type="submit" class="btn btn-success">Invia</button>
         </div>
       </div>
 
