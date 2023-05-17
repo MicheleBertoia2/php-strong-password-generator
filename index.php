@@ -1,9 +1,12 @@
 <?php 
 
-if(isset($_GET['length']) && !empty($_GET['length'])){
+$error_msg = "";
+
+if(isset($_GET['length']) && !empty($_GET['length']) && ($_GET['length'] >= 6) && is_numeric($_GET['length'])){
   var_dump("ok c'è");
 }else{
   var_dump("non c'è");
+  $error_msg = "si prega di inserire un numero valido maggiore di 6";
 }
 
 
@@ -31,6 +34,7 @@ if(isset($_GET['length']) && !empty($_GET['length'])){
           <div class="mb-3 col-3">
             <label for="length" class="form-label">Lunghezza Password</label>
             <input type="number" class="form-control" id="length" placeholder="inserisci la lunghezza della password" name="length">
+            <p class="text-danger" > <?php echo $error_msg ?> </p>
           </div>
       </div>
 
