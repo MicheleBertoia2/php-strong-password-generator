@@ -12,6 +12,11 @@ if(isset($_GET['length']) && !empty($_GET['length'])){
   }else{
     $error_msg = "si prega di inserire un numero valido maggiore di 6";
   }  
+};
+
+if(isset($_GET['length']) && empty($_GET['length'])){
+  $error_msg = "si prega di inserire un numero";
+  // var_dump('è vuota');
 }
 
 
